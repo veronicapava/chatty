@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth'
+import {
+    createUserWithEmailAndPassword, signInWithEmailAndPassword,
+
+    onAuthStateChanged, signOut, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, createUserWith
+} from 'firebase/auth'
 import { auth } from '../services/firebase'
 
 const provider = new GoogleAuthProvider()
@@ -17,6 +21,8 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+    const signupWithGmail = (email, password) => signInWithPopup(auth, provider)
+    const signupWithGitHub = (email, password) => signInWithPopup(auth, gitHubProvider)
 
     const login = (email, password) => signInWithEmailAndPassword(auth, email, password)
 
@@ -34,7 +40,7 @@ export function AuthProvider({ children }) {
     }, [])
 
     return ( //Todos los hijos van a obtener el context
-        <authContext.Provider value={{ signup, login, user, logout, loading, loginWithGmail, loginWithGitHub }}>
+        <authContext.Provider value={{ signup, login, user, signupWithGitHub, signupWithGmail, logout, loading, loginWithGmail, loginWithGitHub }}>
             {children}
         </authContext.Provider>
     )
