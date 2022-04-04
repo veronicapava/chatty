@@ -4,8 +4,8 @@
 // import 'firebase/compat/database';
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
-
+//import { getStorage } from "firebase/storage";
+import { getDatabase } from 'firebase/database'
 
 //import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -29,7 +29,8 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
-export const db = getStorage(app)
+//export const db = getStorage(app)
+export const db = getDatabase(app)
 // export const db = firebase.database();
 
 // // Inicializamos la aplicación y la guardamos en firebaseApp
