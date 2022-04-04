@@ -43,22 +43,22 @@ const Login = () => {
     };
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h1>Bienvenidos a Chatty</h1>
-                <p>¡El mejor chat de la historia!😊</p>
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" placeholder="Your email" onChange={handleChange} />
+        <div className="container">
+            <form className="mt-5 py-5 px-5" onSubmit={handleSubmit}>
+                <h1 className="title ml-2">Bienvenidos a Chatty</h1>
+                <p className="lead">¡El mejor chat de la historia!😊</p>
+                <label className="lead" htmlFor="email">Email</label>
+                <input className="form-control" type="email" name="email" placeholder="Your email" onChange={handleChange} />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" placeholder="Your password" onChange={handleChange} />
+                <label className="lead" htmlFor="password">Password</label>
+                <input className="form-control" type="password" name="password" placeholder="Your password" onChange={handleChange} />
 
-                <button>Login</button>
+                <button className="btn btn-primary px-5">Login</button>
             </form>
             {error && <p>{error}</p>}
-            <button onClick={handleGoogleSignin}>Login With Google Account</button>
-            <button onClick={handleGitHubSignin}>Login With GitHub Account</button>
-        </>
+            <button className="btn btn-primary px-5" onClick={handleGoogleSignin}>Login With Google Account</button>
+            <button className="btn btn-primary px-5" onClick={handleGitHubSignin}>Login With GitHub Account</button>
+        </div>
     );
 };
 
