@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Header from '../components/Header';
 import { auth, db } from '../services/firebase';
 import { ref, onValue, set } from 'firebase/database'
 
